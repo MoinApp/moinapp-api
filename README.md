@@ -123,7 +123,7 @@ If the username is too short:
   "error": "Username is too short." 
 }
 ```
-
+---
 ### POST /user/session
 
 Creates a session for a user.
