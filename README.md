@@ -36,9 +36,9 @@ curl -n -X POST https://moin.herokuapp.com/moin?session=$TOKEN \
 
 ## Users
 
-### HEAD /user/:name
+### GET /user/:name
 
-Checks whether a user with the specifed name exists or not (return 200 if he does, 404 if he does not).
+Returns the user with the specified name, or null and 404 if he doesnt exist.
 
 #### Example:
 
@@ -47,6 +47,30 @@ curl -n -i -X HEAD https://moin.herokuapp.com/user/heinz \
   -H "Content-Type: application/json"
 
 ```
+
+#### Response:
+
+If the user exists:
+
+**Status Code**: 200
+
+**Body:**
+```json
+{
+  "name": "heinz",
+  "id": "01234567-89ab-cdef-0123-456789abcdef"
+}
+```
+
+If the user does not exist:
+
+**Status Code**: 404
+
+**Body:**
+```json
+{}
+```
+
 ---
 
 ### POST /user
