@@ -1,10 +1,4 @@
 #!/bin/sh
 
-cat <<EOT > .git/hooks/pre-commit
-#! /bin/sh
-pwd
-make clean all
-git add README.md
-EOT
-
+ln -s ./scripts/pre-commit.sh .git/hooks/pre-commit
 chmod +x .git/hooks/pre-commit
