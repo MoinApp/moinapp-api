@@ -1,0 +1,9 @@
+{
+ "description": "MoinApp API",
+ "id": "moin",
+ "links": [{
+   "href": "https://moin.herokuapp.com",
+   "rel": "self"
+ }],
+ "title": "MoinApp"
+}
