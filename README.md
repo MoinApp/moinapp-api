@@ -7,6 +7,12 @@ Moin consists of 5 basic API calls, that's all you need (for now):
 Endpoints which are marked with **requires session** (surprisingly) require a session. You can obtain a session with the sign in and register endpoints (described later in this document).
 A session is a Token-String you get from the server. You have to include it as a query-parameter (`session`).
 
+* [POST /moin](#POST /moin)
+* [GET /user/:name](#GET /user/:name)
+* [POST /user](#POST /user)
+* [POST /user/gcm](#POST /user/gcm)
+* [POST /user/session](#POST /user/session)
+
 ## Moining
 
 ### POST /moin
@@ -148,7 +154,7 @@ If the username is too short:
 }
 ```
 ---
-### PUT /user
+### POST /user/gcm
 **requires session**
 
 Adds a new GCM Id to the user.
@@ -164,7 +170,7 @@ Adds a new GCM Id to the user.
 ```bash
 export TOKEN=...
 
-curl -n -X PUT https://moin.herokuapp.com/user?session=$TOKEN \
+curl -n -X POST https://moin.herokuapp.com/user/gcm?session=$TOKEN \
   -H "Content-Type: application/json" \
   -d '{
   "gcm_id": "01234567-89ab-cdef-0123-456789abcdef"
