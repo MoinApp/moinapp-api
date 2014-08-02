@@ -126,7 +126,7 @@ If the username is too short:
 ### PUT /user
 **requires session**
 
-Updates the GCM Id of the user (they might change).
+Adds a new GCM Id to the user.
 
 #### Body:
 ```json
