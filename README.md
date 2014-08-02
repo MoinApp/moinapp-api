@@ -58,7 +58,8 @@ If the user exists:
 ```json
 {
   "username": "heinz",
-  "id": "01234567-89ab-cdef-0123-456789abcdef"
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "email_hash": "<MD5-Hash of the Email Address>"
 }
 ```
 
@@ -81,6 +82,7 @@ Creates a new user.
 ```json
 {
   "username": "<USER_NAME>",
+  "email": "<USER_MAIL>",
   "password": "<PASSWORD>"
 }
 
@@ -92,8 +94,7 @@ curl -n -X POST https://moin.herokuapp.com/user \
   -H "Content-Type: application/json" \
   -d '{
   "username": "CrazyUlf",
-  "password": "ultraHeinzHax0r",
-  "gcm_id": "1234"
+  "password": "ultraHeinzHax0r"
 }'
 
 ```
