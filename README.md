@@ -113,7 +113,7 @@ If all went well:
 **Body**:
 ```json
 {
-  "status": 0,
+  "code": "Success",
   "session": "ads987sdgfb23498zwebasd83ur9bas8d"
 }
 ```
@@ -125,8 +125,8 @@ If the username is taken:
 **Body**:
 ```json
 {
-  "status": -1,
-  "error": "Username is already taken." 
+  "code": "UsernameTaken",
+  "message": "Username is already taken." 
 }
 ```
 
@@ -137,8 +137,8 @@ If the password is too short:
 **Body**:
 ```json
 {
-  "status": -2,
-  "error": "Password is too short." 
+  "code": "PasswordTooShort",
+  "message": "Password is too short." 
 }
 ```
 
@@ -149,8 +149,8 @@ If the username is too short:
 **Body**:
 ```json
 {
-  "status": -3,
-  "error": "Username is too short." 
+  "code": "UsernameTooShort",
+  "message": "Username is too short." 
 }
 ```
 ---
@@ -210,7 +210,7 @@ If all went well:
 **Body**:
 ```json
 {
-  "status": 0,
+  "code": "Success",
   "session": "ads987sdgfb23498zwebasd83ur9bas8d"
 }
 ```
@@ -222,7 +222,7 @@ If the username or the password is wrong:
 **Body**:
 ```json
 {
-  "status": -1,
-  "error": "Username or Password is wrong." 
+  "code": "CredentialsWrong",
+  "message": "Username or Password is wrong." 
 }
 ```
