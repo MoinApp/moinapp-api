@@ -1,9 +1,9 @@
 all:
-		prmd combine --meta meta.json schemata/ > schema.json
-		prmd doc schema.json > README.md
+		prmd combine --meta meta.json schemata/ > $(shell pwd)/schema.json
+		prmd doc $(shell pwd)/schema.json > $(shell pwd)/README.md
 
 verify:
-		prmd verify ./schema.json
+		prmd verify $(shell pwd)/schema.json
 
 clean:
 		rm -f schema.json
