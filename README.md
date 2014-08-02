@@ -43,7 +43,7 @@ Returns the user with the specified name, or null and 404 if he doesnt exist.
 #### Example:
 
 ```bash
-curl -n -i -X HEAD https://moin.herokuapp.com/user/heinz \
+curl -n -i -X GET https://moin.herokuapp.com/user/heinz \
   -H "Content-Type: application/json"
 
 ```
