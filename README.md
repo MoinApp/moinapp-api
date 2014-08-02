@@ -2,7 +2,7 @@
 
 The Moin-API speaks JSON. Everywhere. You know why.
 
-Moin consists of 4 basic API calls, that's all you need (for now):
+Moin consists of 5 basic API calls, that's all you need (for now):
 
 Endpoints which are marked with **requires session** (surprisingly) require a session. You can obtain a session with the sign in and register endpoints (described later in this document).
 A session is a Token-String you get from the server. You have to include it as a query-parameter (`session`).
@@ -57,15 +57,14 @@ Creates a new user.
 ```json
 {
   "name": "<USER_NAME>",
-  "password": "<PASSWORD>",
-  "gcm_id": "The Id for Google Cloud Messaging"
+  "password": "<PASSWORD>"
 }
 
 ```
 #### Example:
 
 ```bash
-curl -n -X POST https://moin.herokuapp.com/user\
+curl -n -X POST https://moin.herokuapp.com/user \
   -H "Content-Type: application/json" \
   -d '{
   "username": "CrazyUlf",
@@ -123,6 +122,31 @@ If the username is too short:
   "error": "Username is too short." 
 }
 ```
+---
+### PUT /user
+**requires session**
+
+Updates the GCM Id of the user (they might change).
+
+#### Body:
+```json
+{
+  "gcm_id": "<GCM_ID>"
+}
+```
+
+#### Example:
+```bash
+export TOKEN=...
+
+curl -n -X PUT https://moin.herokuapp.com/user?session=$TOKEN \
+  -H "Content-Type: application/json" \
+  -d '{
+  "gcm_id": "01234567-89ab-cdef-0123-456789abcdef"
+}'
+
+```
+
 ---
 ### POST /user/session
 
