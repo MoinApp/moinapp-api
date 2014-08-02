@@ -4,4 +4,4 @@ all:
 		prmd doc schema.json > README.md
 
 clean:
-		rm schema.json
+		rm -f schema.json

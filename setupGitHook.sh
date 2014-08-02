@@ -3,7 +3,7 @@
 cat <<EOT > .git/hooks/pre-commit
 #! /bin/sh
 pwd
-make all
+make clean all
 git add README.md
 EOT
 
