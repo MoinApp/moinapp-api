@@ -44,12 +44,16 @@ curl -n -X POST https://moinapp.herokuapp.com/moin?session=$TOKEN \
 
 ### GET /user/:name
 
+**requires session**
+
 Returns the user with the specified name, or null and 404 if he doesnt exist.
 
 #### Example:
 
 ```bash
-curl -n -i -X GET https://moinapp.herokuapp.com/user/heinz \
+export TOKEN=...
+
+curl -n -i -X GET https://moinapp.herokuapp.com/user/heinz?session=$TOKEN \
   -H "Content-Type: application/json"
 
 ```
