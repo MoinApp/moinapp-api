@@ -31,7 +31,7 @@ Sends a Moin to a user.
 ```bash
 export TOKEN=...
 
-curl -n -X POST https://moinapp.herokuapp.com.com/moin?session=$TOKEN \
+curl -n -X POST https://moinapp.herokuapp.com/moin?session=$TOKEN \
   -H "Content-Type: application/json" \
   -d '{
   "to": "01234567-89ab-cdef-0123-456789abcdef"
@@ -49,7 +49,7 @@ Returns the user with the specified name, or null and 404 if he doesnt exist.
 #### Example:
 
 ```bash
-curl -n -i -X GET https://moinapp.herokuapp.com.com/user/heinz \
+curl -n -i -X GET https://moinapp.herokuapp.com/user/heinz \
   -H "Content-Type: application/json"
 
 ```
@@ -96,10 +96,11 @@ Creates a new user.
 #### Example:
 
 ```bash
-curl -n -X POST https://moinapp.herokuapp.com.com/user \
+curl -n -X POST https://moinapp.herokuapp.com/user \
   -H "Content-Type: application/json" \
   -d '{
   "username": "CrazyUlf",
+  "email": "pedacoins@pedab.com"
   "password": "ultraHeinzHax0r"
 }'
 
@@ -170,7 +171,7 @@ Adds a new GCM Id to the user.
 ```bash
 export TOKEN=...
 
-curl -n -X POST https://moinapp.herokuapp.com.com/user/gcm?session=$TOKEN \
+curl -n -X POST https://moinapp.herokuapp.com/user/gcm?session=$TOKEN \
   -H "Content-Type: application/json" \
   -d '{
   "gcm_id": "01234567-89ab-cdef-0123-456789abcdef"
@@ -193,7 +194,7 @@ Creates a session for a user.
 
 #### Example:
 ```bash
-curl -n -X POST https://moinapp.herokuapp.com.com/user/session \
+curl -n -X POST https://moinapp.herokuapp.com/user/session \
   -H "Content-Type: application/json" \
   -d '{
   "username": "CrazyHeinz",
