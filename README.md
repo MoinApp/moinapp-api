@@ -6,6 +6,7 @@ Moin consists of 5 basic API calls, that's all you need (for now):
 
 Endpoints which are marked with **requires session** (surprisingly) require a session. You can obtain a session with the sign in and register endpoints (described later in this document).
 A session is a Token-String you get from the server. You have to include it as a query-parameter (`session`).
+Using this API requires to obtain an API-Key. You can get one from the Server (how depends on the server). You have to add it to every request as a GET-Parameter.
 
 * Moining
   * [POST /moin](#post-moin)
@@ -32,8 +33,9 @@ Sends a Moin to a user.
 #### Example:
 ```bash
 export TOKEN=...
+export API_KEY=...
 
-curl -n -X POST https://moinapp.herokuapp.com/moin?session=$TOKEN \
+curl -n -X POST https://moinapp.herokuapp.com/moin?api_key=$API_KEY&session=$TOKEN \
   -H "Content-Type: application/json" \
   -d '{
   "to": "01234567-89ab-cdef-0123-456789abcdef"
@@ -54,8 +56,9 @@ Returns the user with the specified name, or null and 404 if he doesnt exist.
 
 ```bash
 export TOKEN=...
+export API_KEY=...
 
-curl -n -i -X GET https://moinapp.herokuapp.com/user/heinz?session=$TOKEN \
+curl -n -i -X GET https://moinapp.herokuapp.com/user/heinz?api_key=$API_KEY&session=$TOKEN \
   -H "Content-Type: application/json"
 
 ```
@@ -102,7 +105,9 @@ Creates a new user.
 #### Example:
 
 ```bash
-curl -n -X POST https://moinapp.herokuapp.com/user \
+export API_KEY=...
+
+curl -n -X POST https://moinapp.herokuapp.com/user?api_key=$API_KEY \
   -H "Content-Type: application/json" \
   -d '{
   "username": "CrazyUlf",
@@ -176,8 +181,9 @@ Adds a new GCM Id to the user.
 #### Example:
 ```bash
 export TOKEN=...
+export API_KEY=...
 
-curl -n -X POST https://moinapp.herokuapp.com/user/gcm?session=$TOKEN \
+curl -n -X POST https://moinapp.herokuapp.com/user/gcm?api_key=$API_KEY&session=$TOKEN \
   -H "Content-Type: application/json" \
   -d '{
   "gcm_id": "01234567-89ab-cdef-0123-456789abcdef"
@@ -200,7 +206,9 @@ Creates a session for a user.
 
 #### Example:
 ```bash
-curl -n -X POST https://moinapp.herokuapp.com/user/session \
+export API_KEY=...
+
+curl -n -X POST https://moinapp.herokuapp.com/user/session?api_key=$API_KEY \
   -H "Content-Type: application/json" \
   -d '{
   "username": "CrazyHeinz",
