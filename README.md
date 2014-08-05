@@ -7,11 +7,13 @@ Moin consists of 5 basic API calls, that's all you need (for now):
 Endpoints which are marked with **requires session** (surprisingly) require a session. You can obtain a session with the sign in and register endpoints (described later in this document).
 A session is a Token-String you get from the server. You have to include it as a query-parameter (`session`).
 
-* [POST /moin](#post-moin)
-* [GET /user/:name](#get-username)
-* [POST /user](#post-user)
-* [POST /user/gcm](#post-usergcm)
-* [POST /user/session](#post-usersession)
+* Moining
+  * [POST /moin](#post-moin)
+* Users
+  * [GET /user/:name](#get-username)
+  * [POST /user](#post-user)
+  * [POST /user/gcm](#post-usergcm)
+  * [POST /user/session](#post-usersession)
 
 ## Moining
 
