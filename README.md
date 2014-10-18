@@ -1,24 +1,21 @@
-# Moin
+# Moin API
 
-The Moin-API speaks JSON. Everywhere. You know why.
-
-Moin consists of 5 basic API calls, that's all you need (for now):
+The Moin API consists of REST endpoints and a WebSockets server.
+Every request is JSON or contains JSON data.
 
 Endpoints which are marked with **requires session** (surprisingly) require a session. You can obtain a session with the sign in and register endpoints (described later in this document).
-A session is a Token-String you get from the server. You have to include it as a query-parameter (`session`).
-Using this API requires to obtain an API-Key. You can get one from the Server (how depends on the server). You have to add it to every request as a GET-Parameter.
+A session is a token string you get from the server. You have to include it as a query-parameter (`session=`).
 
-* Moining
-  * [POST /moin](#post-moin)
+* Moin
+  * [POST /api/moin](#post-moin)
 * Users
-  * [GET /user/:name](#get-username)
-  * [POST /user](#post-user)
+  * [POST /api/auth]()
+  * [GET /api/user/:name](#get-username)
   * [POST /user/gcm](#post-usergcm)
-  * [POST /user/session](#post-usersession)
 
-## Moining
+## Moin
 
-### POST /moin
+### POST /api/moin
 **requires session**
 
 Sends a Moin to a user.
@@ -26,19 +23,18 @@ Sends a Moin to a user.
 #### Body:
 ```json
 {
-  "to": "<USER_ID>"
+  "username": "<USER_ID>"
 }
 ```
 
 #### Example:
 ```bash
 export TOKEN=...
-export API_KEY=...
 
-curl -n -X POST https://moinapp.herokuapp.com/moin?api_key=$API_KEY&session=$TOKEN \
+curl -n -X POST https://moinapp.herokuapp.com/api/moin?session=$TOKEN \
   -H "Content-Type: application/json" \
   -d '{
-  "to": "01234567-89ab-cdef-0123-456789abcdef"
+  "username": "abcdef"
 }'
 
 ```
@@ -46,7 +42,38 @@ curl -n -X POST https://moinapp.herokuapp.com/moin?api_key=$API_KEY&session=$TOK
 
 ## Users
 
-### GET /user/:name
+### POST /api/auth
+
+This is the login endpoint. Returns 200 and the user's session or errors.
+
+#### Example:
+
+```bash
+curl -n -X POST https://moinapp.herokuapp.com/api/user \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "abcdef",
+    "email": "a.b@c.d"
+    "password": "0123456789",
+    "application": "curl"
+  }'
+```
+
+#### Response:
+
+On success:
+
+**Status Code**: 200
+
+**Body:**
+```json
+{
+ code: "Success",
+ session: "TOKEN"
+}
+```
+
+### GET /api/user/:name
 
 **requires session**
 
@@ -56,11 +83,9 @@ Returns the user with the specified name, or null and 404 if he doesnt exist.
 
 ```bash
 export TOKEN=...
-export API_KEY=...
 
-curl -n -i -X GET https://moinapp.herokuapp.com/user/heinz?api_key=$API_KEY&session=$TOKEN \
+curl -n -X GET https://moinapp.herokuapp.com/user/heinz?session=$TOKEN \
   -H "Content-Type: application/json"
-
 ```
 
 #### Response:
@@ -87,84 +112,6 @@ If the user does not exist:
 {}
 ```
 
----
-
-### POST /user
-
-Creates a new user.
-
-#### Body:
-```json
-{
-  "username": "<USER_NAME>",
-  "email": "<USER_MAIL>",
-  "password": "<PASSWORD>"
-}
-
-```
-#### Example:
-
-```bash
-export API_KEY=...
-
-curl -n -X POST https://moinapp.herokuapp.com/user?api_key=$API_KEY \
-  -H "Content-Type: application/json" \
-  -d '{
-  "username": "CrazyUlf",
-  "email": "pedacoins@pedab.com"
-  "password": "ultraHeinzHax0r"
-}'
-
-```
-
-#### Response:
-If all went well:
-
-**Status Code**: 200
-
-**Body**:
-```json
-{
-  "code": "Success",
-  "session": "ads987sdgfb23498zwebasd83ur9bas8d"
-}
-```
-
-If the username is taken:
-
-**Status Code**: 400
-
-**Body**:
-```json
-{
-  "code": "UsernameTaken",
-  "message": "Username is already taken." 
-}
-```
-
-If the password is too short:
-
-**Status Code**: 400
-
-**Body**:
-```json
-{
-  "code": "PasswordTooShort",
-  "message": "Password is too short." 
-}
-```
-
-If the username is too short:
-
-**Status Code**: 400
-
-**Body**:
-```json
-{
-  "code": "UsernameTooShort",
-  "message": "Username is too short." 
-}
-```
 ---
 ### POST /user/gcm
 **requires session**
