@@ -12,18 +12,21 @@ The live server is running at http://moinapp.herokuapp.com. It should be running
 
 # TOC
 
-* Moin
-  * [Send Moin](#send-moin)
-* Users
-  * [Authenticate](#authenticate)
-  * [Sign Up](#sign-up)
-  * [Get user info](#get-user-info)
-* Push
-  * [Add Android device](#add-android-device)
+Requests
+  * Moin
+    * [Send Moin](#send-moin)
+  * Users
+    * [Authenticate](#authenticate)
+    * [Sign Up](#sign-up)
+    * [Get user info](#get-user-info)
+  * Push
+    * [Add Android device](#add-android-device)
+Receiving
+  * [Moin Push](#moin-push)
   
 ---
 
-# REST Documentation
+# Requests
 
 ## Moin
 
@@ -117,3 +120,13 @@ Route: '/api/user/addgcm'
 |parameter|description|optional|
 |---------|-----------|--------|
 |gcmId    | The GCM Id that should be added to the authenticated user. | no |
+
+# Receiving
+
+## Moin Push
+
+When a Moin is sent it is propagates via different means to the receiving user.
+
+1. **Push Notifications**: If the user has registered a mobile device ([iOS](https://github.com/MoinApp/moinapp-ios) and [Android](https://github.com/MoinApp/moinapp-android)), those will receive a push notification.
+2. **Socket.IO**: If the user is currently connected to the Server via Socket.IO, an event will be sent to every connection so that clients can show the notification.<br>
+  The event name in those cases is `moin` and has a `sender` parameter that contains inforation about the moin'ing user.
