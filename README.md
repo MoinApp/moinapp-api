@@ -3,7 +3,7 @@
 The Moin API consists of REST endpoints and a WebSockets server.
 Every request is JSON or contains JSON data.
 
-Endpoints which are marked with **requires session** (surprisingly) require a session. You can obtain a session with the sign in and register endpoints (described later in this document).
+Endpoints which are marked with "**Requires session.**" (surprisingly) require a session. You can obtain a session with the sign in and register endpoints (described later in this document).
 A session is a token string you get from the server. You have to include it as a query-parameter (`session`).
 
 The live server is running at http://moinapp.herokuapp.com. It should be running the master branch of http://github.com/MoinApp/moinapp-server/ although this is not guaranteed.
@@ -30,9 +30,10 @@ The live server is running at http://moinapp.herokuapp.com. It should be running
 ### Send Moin
 Sends a Moin to a user.
 
+**Requires session.**
+
 #### REST
 Route: `/api/moin`
-**requires session**
 
 |parameter|description|optional|
 |---------|-----------|--------|
@@ -68,9 +69,10 @@ Route: `/api/signup`
 ### Get user info
 Returns general information about the specified user.
 
+**Requires session.**
+
 #### REST
 Route: `/api/user/:username`
-**requires session**
 
 **These parameters are part of the url**: *username*.
 
@@ -83,9 +85,10 @@ Route: `/api/user/:username`
 ### Add Android device
 Add a GoogleCloudMessage identifier that should receive push notifications.
 
+**Requires session.**
+
 #### REST
 Route: '/api/user/addgcm'
-**requires session**
 
 |parameter|description|optional|
 |---------|-----------|--------|
