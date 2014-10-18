@@ -1,7 +1,7 @@
 # Moin API
 
 The Moin API consists of REST endpoints and a WebSockets server.
-Every request is JSON or contains JSON data.
+Every request is JSON encoded and/or contains JSON data.
 
 Endpoints which are marked with "**Requires session.**" (surprisingly) require a session. You can obtain a session with the sign in and register endpoints (described later in this document).
 A session is a token string you get from the server. You have to include it as a query-parameter (`session`).
@@ -39,6 +39,14 @@ Route: `/api/moin`
 |---------|-----------|--------|
 |username | The username of the user that should receive the Moin. | no |
 
+#### WebSockets
+Event: `moin`
+
+|parameter|description|optional|
+|---------|-----------|--------|
+| receipientName | The username of the user that should receive the Moin. | no |
+| callback | A `function(error, result)` callback. | *yes*
+
 ## Users
 
 ### Authenticate
@@ -52,6 +60,14 @@ Route: `/api/auth`
 |username | The user's username. | no |
 |password | The user's password. | no |
 |application | The application's identifier. | no |
+
+#### WebSockets
+Event: `auth`
+
+|parameter|description|optional|
+|---------|-----------|--------|
+|sessionToken | The session token for authentication. **This has to be acquired first via the REST-call.** | no |
+|callback | A `function(error, authenticationSuccessful)` callback. | *yes* |
 
 ### Sign Up
 Signs up for a new user account and acquires a session token.
@@ -79,6 +95,14 @@ Route: `/api/user/:username`
 |parameter|description|optional|
 |---------|-----------|--------|
 |username | The username of the user whose info should be returned. | no |
+
+#### WebSockets
+Event: `getUser`
+
+|parameter|description|optional|
+|---------|-----------|--------|
+|username | The username of the user whose info should be returned. | no |
+|callback | A `function(error, user)` callback. | *yes* |
 
 ## Push
 
