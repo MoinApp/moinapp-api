@@ -1,6 +1,6 @@
 # Moin API
 
-The Moin API consists of REST endpoints and a WebSockets server.
+The Moin API consists of REST endpoints and a Socket.IO (v1.0) server.
 Every request is JSON encoded and/or contains JSON data.
 
 Endpoints which are marked with "**Requires session.**" (surprisingly) require a session. You can obtain a session with the sign in and register endpoints (described later in this document).
@@ -39,7 +39,7 @@ Route: `/api/moin`
 |---------|-----------|--------|
 |username | The username of the user that should receive the Moin. | no |
 
-#### WebSockets
+#### Socket.IO (v1.0)
 Event: `moin`
 
 |parameter|description|optional|
@@ -61,7 +61,7 @@ Route: `/api/auth`
 |password | The user's password. | no |
 |application | The application's identifier. | no |
 
-#### WebSockets
+#### Socket.IO (v1.0)
 Event: `auth`
 
 |parameter|description|optional|
@@ -96,7 +96,7 @@ Route: `/api/user/:username`
 |---------|-----------|--------|
 |username | The username of the user whose info should be returned. | no |
 
-#### WebSockets
+#### Socket.IO (v1.0)
 Event: `getUser`
 
 |parameter|description|optional|
