@@ -8,6 +8,10 @@ A session is a token string you get from the server. You have to include it as a
 
 The live server is running at http://moinapp.herokuapp.com. It should be running the master branch of http://github.com/MoinApp/moinapp-server/ although this is not guaranteed.
 
+---
+
+# TOC
+
 * Moin
   * [Send Moin](#send-moin)
 * Users
@@ -16,12 +20,17 @@ The live server is running at http://moinapp.herokuapp.com. It should be running
   * [Get user info](#get-user-info)
 * Push
   * [Add Android device](#add-android-device)
+  
+---
+
+# REST Documentation
 
 ## Moin
 
 ### Send Moin
 Sends a Moin to a user.
 
+#### REST
 Route: `/api/moin`
 **requires session**
 
@@ -29,13 +38,12 @@ Route: `/api/moin`
 |---------|-----------|--------|
 |username | The username of the user that should receive the Moin. | no |
 
----
-
 ## Users
 
 ### Authenticate
 Authenticates the user and acquires a session token.
 
+#### REST
 Route: `/api/auth`
 
 |parameter|description|optional|
@@ -47,6 +55,7 @@ Route: `/api/auth`
 ### Sign Up
 Signs up for a new user account and acquires a session token.
 
+#### REST
 Route: `/api/signup`
 
 |parameter|description|optional|
@@ -59,6 +68,7 @@ Route: `/api/signup`
 ### Get user info
 Returns general information about the specified user.
 
+#### REST
 Route: `/api/user/:username`
 **requires session**
 
@@ -73,6 +83,7 @@ Route: `/api/user/:username`
 ### Add Android device
 Add a GoogleCloudMessage identifier that should receive push notifications.
 
+#### REST
 Route: '/api/user/addgcm'
 **requires session**
 
