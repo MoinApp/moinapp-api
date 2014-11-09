@@ -106,6 +106,19 @@ Event: `getUser`
 |username | The username of the user whose info should be returned. | no |
 |callback | A `function(error, user)` callback. | *yes* |
 
+## Find users
+Returns a list of usernames beginning with the specified query term.
+
+#### REST
+Route: `/api/user/`
+
+**These parameters are part of the query params**: *username*.
+
+|parameter|description|optional|
+|---------|-----------|--------|
+|username | The username of the user who shall be searched for. | no |
+
+
 ## Push
 
 ### Add Android device
