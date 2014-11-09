@@ -62,7 +62,6 @@ Route: `/api/auth`
 |---------|-----------|--------|
 |username | The user's username. | no |
 |password | The user's password. | no |
-|application | The application's identifier. | no |
 
 #### Socket.IO (v1.0)
 Event: `auth`
@@ -82,7 +81,6 @@ Route: `/api/signup`
 |---------|-----------|--------|
 |username | The user's username. | no |
 |password | The user's password. | no |
-|application | The application's identifier. | no |
 |email | The user's email. Will be used for gravatar images. | *yes* |
 
 ### Get user info
