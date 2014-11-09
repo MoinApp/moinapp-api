@@ -106,7 +106,7 @@ Event: `getUser`
 |username | The username of the user whose info should be returned. | no |
 |callback | A `function(error, user)` callback. | *yes* |
 
-## Find users
+### Find users
 Returns a list of usernames beginning with the specified query term.
 
 #### REST
