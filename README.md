@@ -4,7 +4,7 @@ The Moin API consists of REST endpoints and a Socket.IO (v1.0) server.
 Every request is JSON encoded and/or contains JSON data.
 
 Endpoints which are marked with "**Requires session.**" (surprisingly) require a session. You can obtain a session with the sign in and register endpoints (described later in this document).
-A session is a token string you get from the server. You have to include it as a query-parameter (`session`).
+A session is a token string you get from the server. You have to include it in the Authorization Header (`Authorization`).
 
 The live server is running at http://moinapp.herokuapp.com. It should be running the master branch of http://github.com/MoinApp/moinapp-server/ although this is not guaranteed.
 
@@ -21,6 +21,7 @@ Requests
     * [Get user info](#get-user-info)
   * Push
     * [Add Android device](#add-android-device)
+
 Receiving
   * [Moin Push](#moin-push)
   
