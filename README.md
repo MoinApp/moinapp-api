@@ -19,6 +19,7 @@ Requests
     * [Authenticate](#authenticate)
     * [Sign Up](#sign-up)
     * [Get user info](#get-user-info)
+    * [Find users](#find-users)
   * Push
     * [Add Android device](#add-android-device)
 
