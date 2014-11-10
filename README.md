@@ -120,11 +120,26 @@ Route: `/api/user/`
 |---------|-----------|--------|
 |username | The username of the user who shall be searched for. | no |
 
+#### Socket.IO (v1.0)
+Event: `findUser`
+
+|parameter|description|optional|
+|---------|-----------|--------|
+|username | The username of the user that is searched for. | no |
+|callback | A `function(error, users)` callback. | *yes* |
+
 ### Get user's recents
 Returns a list of users the user has contacted.
 
 #### REST
 Route: `/api/user/recents`
+
+#### Socket.IO (v1.0)
+Event: `getRecents`
+
+|parameter|description|optional|
+|---------|-----------|--------|
+|callback | A `function(error, users)` callback. | *yes* |
 
 ## Push
 
