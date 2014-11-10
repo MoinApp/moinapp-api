@@ -20,6 +20,7 @@ Requests
     * [Sign Up](#sign-up)
     * [Get user info](#get-user-info)
     * [Find users](#find-users)
+    * [Get user's recents](#get-users-recents)
   * Push
     * [Add Android device](#add-android-device)
 
@@ -108,7 +109,7 @@ Event: `getUser`
 |callback | A `function(error, user)` callback. | *yes* |
 
 ### Find users
-Returns a list of usernames beginning with the specified query term.
+Returns a list of users whose username is beginning with the specified query term.
 
 #### REST
 Route: `/api/user/`
@@ -119,6 +120,11 @@ Route: `/api/user/`
 |---------|-----------|--------|
 |username | The username of the user who shall be searched for. | no |
 
+### Get user's recents
+Returns a list of users the user has contacted.
+
+#### REST
+Route: `/api/user/recents`
 
 ## Push
 
