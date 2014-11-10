@@ -39,7 +39,7 @@ Sends a Moin to a user.
 **Requires session.**
 
 #### REST
-Route: `/api/moin`
+Route: POST `/api/moin`
 
 |parameter|description|optional|
 |---------|-----------|--------|
@@ -59,7 +59,7 @@ Event: `moin`
 Authenticates the user and acquires a session token.
 
 #### REST
-Route: `/api/auth`
+Route: POST `/api/auth`
 
 |parameter|description|optional|
 |---------|-----------|--------|
@@ -78,7 +78,7 @@ Event: `auth`
 Signs up for a new user account and acquires a session token.
 
 #### REST
-Route: `/api/signup`
+Route: POST `/api/signup`
 
 |parameter|description|optional|
 |---------|-----------|--------|
@@ -92,7 +92,7 @@ Returns general information about the specified user.
 **Requires session.**
 
 #### REST
-Route: `/api/user/:username`
+Route: GET `/api/user/:username`
 
 **These parameters are part of the url**: *username*.
 
@@ -112,7 +112,7 @@ Event: `getUser`
 Returns a list of users whose username is beginning with the specified query term.
 
 #### REST
-Route: `/api/user/`
+Route: GET `/api/user/`
 
 **These parameters are part of the query params**: *username*.
 
@@ -132,7 +132,7 @@ Event: `findUser`
 Returns a list of users the user has contacted.
 
 #### REST
-Route: `/api/user/recents`
+Route: GET `/api/user/recents`
 
 #### Socket.IO (v1.0)
 Event: `getRecents`
@@ -149,7 +149,7 @@ Add a GoogleCloudMessage identifier that should receive push notifications.
 **Requires session.**
 
 #### REST
-Route: '/api/user/addgcm'
+Route: POST ´/api/user/addgcm´
 
 |parameter|description|optional|
 |---------|-----------|--------|
