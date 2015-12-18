@@ -1,0 +1,17 @@
+language: javascript
+install:
+  - npm install -g bootprint
+  - npm install -g bootprint-swagger
+  - npm install -g html-inline
+script:
+  - mkdir out
+  - bootprint swagger ./swagger.yaml out
+  - html-inline target/index.html
+after_success:
+  - cd out
+  - git init
+  - git config user.name "Travis CI"
+  - git config user.email "jh.bruhn@me.com"
+  - git add .
+  - git commit -m "Deploy"
+  - git push --force --quiet "https://$GH_TOKEN@github.com/MoinApp/moinapp-api.git" master:gh-pages > /dev/null 2>&1
