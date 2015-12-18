@@ -33,7 +33,7 @@ paths:
           description: Name of the recipient.
           required: true
           schema:
-            $ref: '#/definitions/User'
+            $ref: '#/definitions/MoinReceiver'
       tags:
         - Moin
       responses:
@@ -54,7 +54,7 @@ paths:
           description: Details of the user.
           required: true
           schema:
-            $ref: '#/definitions/User'
+            $ref: '#/definitions/UserLogin'
       tags:
         - Users
       responses:
@@ -191,6 +191,19 @@ definitions:
       email:
         type: string
         description: MD5 of the users mailaddress for gravatar.
+  UserLogin:
+    properties:
+      name:
+        type: string
+        description: Name of the user.
+      password:
+        type: string
+        description: Password for the user.
+  MoinReceiver:
+    properties:
+      name:
+        type: string
+        description: Name of the Moin Receiver.
   Session:
     properties:
       session_token:
