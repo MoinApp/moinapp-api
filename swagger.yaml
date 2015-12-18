@@ -1,0 +1,208 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: Moin API
+  description: Send Moins around the world.
+  version: "4.0.0"
+# the domain of the service
+host: moinapp.herokuapp.com
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /v4
+produces:
+  - application/json
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Session
+    in: Header
+paths:
+  /moin:
+    post:
+      summary: Send Moin
+      security:
+        - Bearer: []
+      description: |
+        Sends a Moin from the current user to the specified receiver.
+      parameters:
+        - name: username
+          in: body
+          description: Name of the recipient.
+          required: true
+          type: string
+      tags:
+        - MoinSending
+      responses:
+        200:
+          description: The Moin has been send successfully.
+        default:
+          description: Unexpected error
+  /users/auth:
+    post:
+      summary: Authenticate the current user.
+      description: |
+        The server will return a sessiontoken which will be required for further
+        requests to the server requiring authentication.
+      parameters:
+        - name: username
+          in: body
+          description: Username of the user.
+          required: true
+          type: string
+        - name: password
+          in: body
+          description: Password of the user.
+          required: true
+          type: string
+      tags:
+        - Users
+      responses:
+        200:
+          description: The session Token for this session.
+          schema:
+            $ref: '#/definitions/Session'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /users/signup:
+    post:
+      summary: Registration of the new user.
+      description: |
+        Sign up for a new user account an acquire a session token.
+      parameters:
+        - name: username
+          in: body
+          description: Desired username.
+          required: true
+          type: string
+        - name: password
+          in: body
+          description: Password for the user.
+          required: true
+          type: string
+        - name: email
+          in: body
+          type: string
+          format: email
+          description: Email of the user. Used for gravatar.
+      tags:
+        - Users
+      responses:
+        200:
+          description: The new session for the user.
+          schema:
+            $ref: '#/definitions/Session'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /users/{username}:
+    get:
+      summary: User Profile
+      description: |
+        The User Profile endpoint returns information about the user
+        with the specified username.
+      security:
+        - Bearer: []
+      parameters:
+        - name: username
+          in: path
+          description: Username you are looking for.
+          required: true
+      tags:
+        - User
+      responses:
+        200:
+          description: Profile information for a user
+          schema:
+            $ref: '#/definitions/User'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /users:
+    get:
+      summary: Users
+      description: Find a user specified in the query parameter
+      security:
+        - Bearer: []
+      parameters:
+        - name: username
+          in: query
+          type: string
+          description: The username of the user who shall be searched for.
+      tags:
+        - User
+      responses:
+        200:
+          description: List of the found users.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /users/recents:
+    get:
+      summary: Get Recents
+      description: Get Recents for the currently logged in user.
+      security:
+        - Bearer: []
+      tags:
+        - User
+      responses:
+        200:
+          description: List of the found users.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /users/addPush:
+    post:
+      summary: Add Push Token to server.
+      security:
+        - Bearer: []
+      tags:
+        - User
+      parameters:
+        - name: token
+          in: body
+          type: string
+          description: the token brought to you by the service.
+        - name: type
+          in: body
+          type: string
+          description: The type of Push-Service (one of 'apns' and 'gcm')
+definitions:
+  User:
+    properties:
+      user_id:
+        type: string
+        description: Unique identifier representing a specific user.
+      email:
+        type: string
+        description: MD5 of the users mailaddress for gravatar.
+  Session:
+    properties:
+      session_token:
+        type: string
+        description: Token for a session for this user.
+  Error:
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
