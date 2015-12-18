@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <title>Moin API</title>
+</head>
+<body>
+<div class="container">
+    <h1>Moin API</h1>
+    <p><p>Send Moins around the world.</p>
+    </p>
+    
+        <div id="sw-default-produces" class="sw-default-value">
+            <span class="sw-default-value-header">Default response content-types:</span>
+            application/json
+        </div>
+    
+    <div id="sw-schemes" class="sw-default-value">
+        <span class="sw-default-value-header">Schemes:</span>
+        https
+    </div>
+    
+        
+        <h2 id="swagger--summary-tags">Summary</h2>
+            <h3 id="tag-Moining" class="swagger-summary-tag">Tag: Moining</h3>
+            <p></p>
+        
+            <table class="table table-bordered table-condensed swagger--summary">
+                <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#operation--moin-post">POST /moin</a></td>
+                        <td><p>Send Moin</p>
+        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="tag-User" class="swagger-summary-tag">Tag: User</h3>
+            <p></p>
+        
+            <table class="table table-bordered table-condensed swagger--summary">
+                <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#operation--users-auth-post">POST /users/auth</a></td>
+                        <td><p>Authenticate the current user.</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--users-signup-post">POST /users/signup</a></td>
+                        <td><p>Registration of the new user.</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--users--username--get">GET /users/{username}</a></td>
+                        <td><p>User Profile</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--users-get">GET /users</a></td>
+                        <td><p>Users</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--users-recents-get">GET /users/recents</a></td>
+                        <td><p>Get Recents</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--users-addPush-post">POST /users/addPush</a></td>
+                        <td><p>Add Push Token to server.</p>
+        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+    
+    
+        <h2>Security</h2>
+    
+            <div id="security-definition-Bearer" class="panel panel-security-definition panel-security-definition-apiKey">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="security-name">Bearer</span> <strong><span class="sw-security-definition-apiKey"></span></strong></h3>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-security-properties">
+                            <dt>
+                            </dt>
+                            <dt>
+                                    <span class="security-property-name">name:</span>
+                                    <span class="security-property-type">Session</span>
+                            </dt>
+                            <dt>
+                                    <span class="security-property-name">in:</span>
+                                    <span class="security-property-type">header</span>
+                            </dt>
+                    </section>
+                </div>
+            </div>
+    
+    <h2>Paths</h2>
+    
+        
+        <span id="path--moin"></span>
+            <div id="operation--moin-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Send Moin</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/moin</strong></h3>
+                        Tags:
+                            <a href="#tag-Moining">Moining</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Sends a Moin from the current user to the specified receiver.</p>
+            
+                    </section>
+                        
+                            <section class="sw-request-body">
+                                
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>Name of the recipient.</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <a class="json-schema-ref" href="#/definitions/MoinReceiver">MoinReceiver</a>
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                                <p><a href="#sw-default-produces">Uses default content-types: </a>
+                                    <span class="label label-default">application/json</span> 
+                                </p>
+                            
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>The Moin has been send successfully.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-default">
+                                        default 
+                                    
+                                    </dt>
+                                    <dd class="sw-response-default">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unexpected error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                </div>
+            </div>    
+        <span id="path--users"></span>
+            <div id="operation--users-get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Users</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/users</strong></h3>
+                        Tags:
+                            <a href="#tag-User">User</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Find a user specified in the query parameter</p>
+            
+                    </section>
+                    
+                        <section class="sw-request-params">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                username
+                                            <td><p>The username of the user who shall be searched for.</p>
+                                        </td>
+                                            <td>query</td>
+                                            <td><span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                                <p><a href="#sw-default-produces">Uses default content-types: </a>
+                                    <span class="label label-default">application/json</span> 
+                                </p>
+                            
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>List of the found users.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                            <section class="json-schema-array-items">
+                                                                                <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/User">User</a>
+                                                                                </span>
+                                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                                
+                                                                                <div class="json-inner-schema">
+                                                                                    
+                                                                                </div>
+                                                                            </section>    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-default">
+                                        default 
+                                    
+                                    </dt>
+                                    <dd class="sw-response-default">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unexpected error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                </div>
+            </div>    
+        <span id="path--users-addPush"></span>
+            <div id="operation--users-addPush-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Add Push Token to server.</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/users/addPush</strong></h3>
+                        Tags:
+                            <a href="#tag-User">User</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        
+                    </section>
+                        
+                            <section class="sw-request-body">
+                                
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p></p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <a class="json-schema-ref" href="#/definitions/PushToken">PushToken</a>
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                                <p><a href="#sw-default-produces">Uses default content-types: </a>
+                                    <span class="label label-default">application/json</span> 
+                                </p>
+                            
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Runs.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-default">
+                                        default 
+                                    
+                                    </dt>
+                                    <dd class="sw-response-default">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unexpected error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                </div>
+            </div>    
+        <span id="path--users-auth"></span>
+            <div id="operation--users-auth-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Authenticate the current user.</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/users/auth</strong></h3>
+                        Tags:
+                            <a href="#tag-User">User</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>The server will return a sessiontoken which will be required for further
+            requests to the server requiring authentication. Username and password
+            are required.</p>
+            
+                    </section>
+                        
+                            <section class="sw-request-body">
+                                
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>Details of the user.</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <a class="json-schema-ref" href="#/definitions/UserLogin">UserLogin</a>
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                                <p><a href="#sw-default-produces">Uses default content-types: </a>
+                                    <span class="label label-default">application/json</span> 
+                                </p>
+                            
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>The session Token for this session.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/Session">Session</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-default">
+                                        default 
+                                    
+                                    </dt>
+                                    <dd class="sw-response-default">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unexpected error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>    
+        <span id="path--users-recents"></span>
+            <div id="operation--users-recents-get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Get Recents</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/users/recents</strong></h3>
+                        Tags:
+                            <a href="#tag-User">User</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Get Recents for the currently logged in user.</p>
+            
+                    </section>
+                    
+                    
+                        <section class="sw-responses">
+                                <p><a href="#sw-default-produces">Uses default content-types: </a>
+                                    <span class="label label-default">application/json</span> 
+                                </p>
+                            
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>List of the found users.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                            <section class="json-schema-array-items">
+                                                                                <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/User">User</a>
+                                                                                </span>
+                                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                                
+                                                                                <div class="json-inner-schema">
+                                                                                    
+                                                                                </div>
+                                                                            </section>    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-default">
+                                        default 
+                                    
+                                    </dt>
+                                    <dd class="sw-response-default">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unexpected error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                </div>
+            </div>    
+        <span id="path--users-signup"></span>
+            <div id="operation--users-signup-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Registration of the new user.</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/users/signup</strong></h3>
+                        Tags:
+                            <a href="#tag-User">User</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Sign up for a new user account an acquire a session token.</p>
+            
+                    </section>
+                        
+                            <section class="sw-request-body">
+                                
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>Object for new user.</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <a class="json-schema-ref" href="#/definitions/User">User</a>
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                                <p><a href="#sw-default-produces">Uses default content-types: </a>
+                                    <span class="label label-default">application/json</span> 
+                                </p>
+                            
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>The new session for the user.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/Session">Session</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-default">
+                                        default 
+                                    
+                                    </dt>
+                                    <dd class="sw-response-default">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unexpected error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>    
+        <span id="path--users--username-"></span>
+            <div id="operation--users--username--get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">User Profile</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/users/{username}</strong></h3>
+                        Tags:
+                            <a href="#tag-User">User</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>The User Profile endpoint returns information about the user
+            with the specified username.</p>
+            
+                    </section>
+                    
+                        <section class="sw-request-params">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                username
+                                            <td><p>Username you are looking for.</p>
+                                        </td>
+                                            <td>path</td>
+                                            <td><span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                                    <span class="json-property-required"></span>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                                <p><a href="#sw-default-produces">Uses default content-types: </a>
+                                    <span class="label label-default">application/json</span> 
+                                </p>
+                            
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Profile information for a user</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/User">User</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-default">
+                                        default 
+                                    
+                                    </dt>
+                                    <dd class="sw-response-default">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unexpected error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                </div>
+            </div>
+     
+    
+                       
+        <h2>Schema definitions</h2>
+    
+            
+                <div id="definition-Error" class="panel panel-definition">
+                        <div class="panel-heading">
+                                <h3 class="panel-title"><a name="/definitions/Error"></a>Error:
+                                    <span class="json-property-type"><span class="json-property-type">object</span>
+                <span class="json-property-range" title="Value limits"></span>
+                
+                </span>
+                                </h3>
+                        </div>
+                    <div class="panel-body">
+                            
+                                <section class="json-schema-properties">
+                                    <dl>
+                                            <dt data-property-name="code">
+                                                <span class="json-property-name">code:</span>
+                                                <span class="json-property-type">integer</span>    <span class="json-property-format">(int32)</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                            <dt data-property-name="message">
+                                                <span class="json-property-name">message:</span>
+                                                <span class="json-property-type">string</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                            <dt data-property-name="fields">
+                                                <span class="json-property-name">fields:</span>
+                                                <span class="json-property-type">string</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                    </dl>
+                                </section>
+                    </div>
+                </div>        
+                <div id="definition-MoinReceiver" class="panel panel-definition">
+                        <div class="panel-heading">
+                                <h3 class="panel-title"><a name="/definitions/MoinReceiver"></a>MoinReceiver:
+                                    <span class="json-property-type"><span class="json-property-type">object</span>
+                <span class="json-property-range" title="Value limits"></span>
+                
+                </span>
+                                </h3>
+                        </div>
+                    <div class="panel-body">
+                            
+                                <section class="json-schema-properties">
+                                    <dl>
+                                            <dt data-property-name="name">
+                                                <span class="json-property-name">name:</span>
+                                                <span class="json-property-type">string</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                <p>Name of the Moin Receiver.</p>
+                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                    </dl>
+                                </section>
+                    </div>
+                </div>        
+                <div id="definition-PushToken" class="panel panel-definition">
+                        <div class="panel-heading">
+                                <h3 class="panel-title"><a name="/definitions/PushToken"></a>PushToken:
+                                    <span class="json-property-type"><span class="json-property-type">object</span>
+                <span class="json-property-range" title="Value limits"></span>
+                
+                </span>
+                                </h3>
+                        </div>
+                    <div class="panel-body">
+                            
+                                <section class="json-schema-properties">
+                                    <dl>
+                                            <dt data-property-name="token">
+                                                <span class="json-property-name">token:</span>
+                                                <span class="json-property-type">string</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                <p>Token brought to you by the Push Service Provider.</p>
+                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                            <dt data-property-name="type">
+                                                <span class="json-property-name">type:</span>
+                                                <span class="json-property-type">string</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                <p>The Type of Pushservice (one of &#39;apns&#39; and &#39;gcm&#39;)</p>
+                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                    </dl>
+                                </section>
+                    </div>
+                </div>        
+                <div id="definition-Session" class="panel panel-definition">
+                        <div class="panel-heading">
+                                <h3 class="panel-title"><a name="/definitions/Session"></a>Session:
+                                    <span class="json-property-type"><span class="json-property-type">object</span>
+                <span class="json-property-range" title="Value limits"></span>
+                
+                </span>
+                                </h3>
+                        </div>
+                    <div class="panel-body">
+                            
+                                <section class="json-schema-properties">
+                                    <dl>
+                                            <dt data-property-name="session_token">
+                                                <span class="json-property-name">session_token:</span>
+                                                <span class="json-property-type">string</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                <p>Token for a session for this user.</p>
+                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                    </dl>
+                                </section>
+                    </div>
+                </div>        
+                <div id="definition-User" class="panel panel-definition">
+                        <div class="panel-heading">
+                                <h3 class="panel-title"><a name="/definitions/User"></a>User:
+                                    <span class="json-property-type"><span class="json-property-type">object</span>
+                <span class="json-property-range" title="Value limits"></span>
+                
+                </span>
+                                </h3>
+                        </div>
+                    <div class="panel-body">
+                            
+                                <section class="json-schema-properties">
+                                    <dl>
+                                            <dt data-property-name="id">
+                                                <span class="json-property-name">id:</span>
+                                                <span class="json-property-type">string</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                <p>Unique identifier representing a specific user.</p>
+                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                            <dt data-property-name="name">
+                                                <span class="json-property-name">name:</span>
+                                                <span class="json-property-type">string</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                <p>Name of the user.</p>
+                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                            <dt data-property-name="password">
+                                                <span class="json-property-name">password:</span>
+                                                <span class="json-property-type">string</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                <p>Password of the user.</p>
+                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                            <dt data-property-name="email">
+                                                <span class="json-property-name">email:</span>
+                                                <span class="json-property-type">string</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                <p>MD5 of the users mailaddress for gravatar.</p>
+                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                    </dl>
+                                </section>
+                    </div>
+                </div>        
+                <div id="definition-UserLogin" class="panel panel-definition">
+                        <div class="panel-heading">
+                                <h3 class="panel-title"><a name="/definitions/UserLogin"></a>UserLogin:
+                                    <span class="json-property-type"><span class="json-property-type">object</span>
+                <span class="json-property-range" title="Value limits"></span>
+                
+                </span>
+                                </h3>
+                        </div>
+                    <div class="panel-body">
+                            
+                                <section class="json-schema-properties">
+                                    <dl>
+                                            <dt data-property-name="name">
+                                                <span class="json-property-name">name:</span>
+                                                <span class="json-property-type">string</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                <p>Name of the user.</p>
+                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                            <dt data-property-name="password">
+                                                <span class="json-property-name">password:</span>
+                                                <span class="json-property-type">string</span>
+                                                <span class="json-property-range" title="Value limits"></span>
+                                                
+                                            </dt>
+                                            <dd>
+                                                <p>Password for the user.</p>
+                                
+                                                <div class="json-inner-schema">
+                                                    
+                                                </div>
+                                            </dd>
+                                    </dl>
+                                </section>
+                    </div>
+                </div>
+</div>
+</body>
+</html>
