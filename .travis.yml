@@ -2,11 +2,9 @@ language: javascript
 install:
   - npm install -g bootprint
   - npm install -g bootprint-swagger
-  - npm install -g html-inline
 script:
   - mkdir out
   - bootprint swagger ./swagger.yaml out
-  - html-inline out/index.html
 after_success:
   - cd out
   - git init
