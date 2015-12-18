@@ -28,11 +28,12 @@ paths:
       description: |
         Sends a Moin from the current user to the specified receiver.
       parameters:
-        - name: username
+        - name: user
           in: body
           description: Name of the recipient.
           required: true
-          type: string
+          schema:
+            $ref: '#/definitions/User'
       tags:
         - MoinSending
       responses:
@@ -45,18 +46,15 @@ paths:
       summary: Authenticate the current user.
       description: |
         The server will return a sessiontoken which will be required for further
-        requests to the server requiring authentication.
+        requests to the server requiring authentication. Username and password
+        are required.
       parameters:
-        - name: username
+        - name: user
           in: body
-          description: Username of the user.
+          description: Details of the user.
           required: true
-          type: string
-        - name: password
-          in: body
-          description: Password of the user.
-          required: true
-          type: string
+          schema:
+            $ref: '#/definitions/User'
       tags:
         - Users
       responses:
@@ -74,21 +72,12 @@ paths:
       description: |
         Sign up for a new user account an acquire a session token.
       parameters:
-        - name: username
+        - name: user
           in: body
-          description: Desired username.
+          description: Object for new user.
           required: true
-          type: string
-        - name: password
-          in: body
-          description: Password for the user.
-          required: true
-          type: string
-        - name: email
-          in: body
-          type: string
-          format: email
-          description: Email of the user. Used for gravatar.
+          schema:
+              $ref: '#/definitions/User'
       tags:
         - Users
       responses:
@@ -175,20 +164,29 @@ paths:
       tags:
         - User
       parameters:
-        - name: token
+        - name: Token
           in: body
-          type: string
-          description: the token brought to you by the service.
-        - name: type
-          in: body
-          type: string
-          description: The type of Push-Service (one of 'apns' and 'gcm')
+          schema:
+            $ref: "#/definitions/PushToken"
+      responses:
+        200:
+          description: Runs.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
 definitions:
   User:
     properties:
-      user_id:
+      id:
         type: string
         description: Unique identifier representing a specific user.
+      name:
+        type: string
+        description: Name of the user.
+      password:
+        type: string
+        description: Password of the user.
       email:
         type: string
         description: MD5 of the users mailaddress for gravatar.
@@ -197,6 +195,14 @@ definitions:
       session_token:
         type: string
         description: Token for a session for this user.
+  PushToken:
+    properties:
+      token:
+        type: string
+        description: Token brought to you by the Push Service Provider.
+      type:
+        type: string
+        description: The Type of Pushservice (one of 'apns' and 'gcm')
   Error:
     properties:
       code:
