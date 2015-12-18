@@ -35,7 +35,7 @@ paths:
           schema:
             $ref: '#/definitions/MoinReceiver'
       tags:
-        - Moin
+        - Moining
       responses:
         200:
           description: The Moin has been send successfully.
@@ -56,7 +56,7 @@ paths:
           schema:
             $ref: '#/definitions/UserLogin'
       tags:
-        - Users
+        - User
       responses:
         200:
           description: The session Token for this session.
@@ -79,7 +79,7 @@ paths:
           schema:
               $ref: '#/definitions/User'
       tags:
-        - Users
+        - User
       responses:
         200:
           description: The new session for the user.
