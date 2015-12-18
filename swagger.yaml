@@ -35,7 +35,7 @@ paths:
           schema:
             $ref: '#/definitions/User'
       tags:
-        - MoinSending
+        - Moin
       responses:
         200:
           description: The Moin has been send successfully.
