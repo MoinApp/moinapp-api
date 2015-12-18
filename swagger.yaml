@@ -97,13 +97,14 @@ paths:
         with the specified username.
       security:
         - Bearer: []
+      tags:
+        - User
       parameters:
         - name: username
           in: path
+          type: string
           description: Username you are looking for.
           required: true
-      tags:
-        - User
       responses:
         200:
           description: Profile information for a user
