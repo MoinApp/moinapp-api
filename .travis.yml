@@ -6,7 +6,7 @@ install:
 script:
   - mkdir out
   - bootprint swagger ./swagger.yaml out
-  - html-inline target/index.html
+  - html-inline out/index.html
 after_success:
   - cd out
   - git init
